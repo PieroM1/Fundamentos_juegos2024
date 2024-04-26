@@ -8,7 +8,7 @@ class Sprite
 {
 private:
 	float x, y;
-	int width, height;
+	double width, height;
 	float vertexData;
 
 	GLuint vboID;
@@ -17,7 +17,7 @@ public:
 	Sprite();
 	~Sprite();
 
-	void init(float x, float y, int width, int height);
+	void init(float x, float y, double width, double height);
 	void draw();
 };
 

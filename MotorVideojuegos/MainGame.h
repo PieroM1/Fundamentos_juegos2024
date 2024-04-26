@@ -4,6 +4,7 @@
 #include <iostream>
 #include "GLS_Program.h"
 #include "Sprite.h"
+#include <list>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ public:
 	void run();
 	void draw();
 	void update();
-
+	double randomCoordinated();
 	
 
 };

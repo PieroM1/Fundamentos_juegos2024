@@ -1,6 +1,8 @@
 #include "MainGame.h"
 #include "Sprite.h"
 
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 
@@ -30,8 +32,8 @@ void MainGame::initShaders()
 MainGame::MainGame()
 {
 	window = nullptr;
-	width = 800;
-	height = 600;
+	width = 1920;
+	height = 1080;
 	gameState = GameState::PLAY;
 }
 
@@ -54,7 +56,7 @@ void MainGame::draw()
 void MainGame::run()
 {
 	init();
-	sprite.init(-1, -1, 1, 1);
+	sprite.init( randomCoordinated(), randomCoordinated(), 0.20, 0.20);
 	update();
 
 }
@@ -62,10 +64,21 @@ void MainGame::run()
 
 void MainGame::update()
 {
+	
 	while (gameState != GameState::EXIT) {
 		processInput();
 		draw();
 	}
+
+}
+
+double MainGame::randomCoordinated()
+{
+	double random_num = (double)rand();
+	random_num /= RAND_MAX;
+	random_num = random_num * 2.0 - 1.0;
+
+	return random_num;
 
 }
 
@@ -80,7 +93,7 @@ void MainGame::processInput()
 			break;
 
 		case SDL_MOUSEMOTION:
-			cout << "Posicion en X " << event.motion.x << "Position Y" << event.motion.y << endl;
+			cout << "Posicion en X" << event.motion.x << " Position Y" << event.motion.y << endl;
 			break;
 	
 		}
@@ -92,3 +105,4 @@ void MainGame::processInput()
 MainGame::~MainGame()
 {
 }
+

@@ -9,7 +9,7 @@ Sprite::Sprite()
 
 
 
-void Sprite::init(float x, float y, int width, int height)
+void Sprite::init(float x, float y, double width, double height)
 {
 	this->x = x;
 	this->y = y;
