@@ -5,6 +5,7 @@
 #include "GLS_Program.h"
 #include "Sprite.h"
 #include <list>
+#include <vector>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ enum class GameState {
 class MainGame
 {
 private:
+
+	vector<Sprite> sprites;
 	Sprite sprite;
 	int width;
 	int height;
@@ -25,6 +28,9 @@ private:
 	GLS_Program program;
 	void initShaders();
 	float time = 0;
+
+	
+
 public:
 	MainGame();
 	~MainGame();
@@ -32,8 +38,10 @@ public:
 	void run();
 	void draw();
 	void update();
-	double randomCoordinated();
 	
+	float randomCoordinated();
+	void spriteAdd();
+	void spritesDraw();
 
 };
 

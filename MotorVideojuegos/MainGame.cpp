@@ -3,6 +3,7 @@
 
 #include <cstdlib>
 #include <ctime>
+#include <list>
 
 using namespace std;
 
@@ -35,9 +36,8 @@ MainGame::MainGame()
 	width = 1920;
 	height = 1080;
 	gameState = GameState::PLAY;
+
 }
-
-
 
 void MainGame::draw()
 {
@@ -47,7 +47,11 @@ void MainGame::draw()
 
 	GLuint timeLocation = program.getUniformLocation("time");
 	glUniform1f(timeLocation, time);
-	time += 0.02;
+	time += 0.020;
+
+	//spriteAdd();
+	//spritesDraw();
+
 	sprite.draw();
 	program.unuse();
 	SDL_GL_SwapWindow(window);
@@ -56,7 +60,7 @@ void MainGame::draw()
 void MainGame::run()
 {
 	init();
-	sprite.init( randomCoordinated(), randomCoordinated(), 0.20, 0.20);
+	sprite.init( randomCoordinated(), randomCoordinated(), 0.20, 0.20);///
 	update();
 
 }
@@ -67,20 +71,36 @@ void MainGame::update()
 	
 	while (gameState != GameState::EXIT) {
 		processInput();
+		//spritesDraw();
 		draw();
 	}
 
 }
 
-double MainGame::randomCoordinated()
+
+float MainGame::randomCoordinated()
 {
-	double random_num = (double)rand();
+	float random_num = (float)rand();
 	random_num /= RAND_MAX;
 	random_num = random_num * 2.0 - 1.0;
-
 	return random_num;
-
 }
+
+void MainGame::spriteAdd()
+{
+	Sprite newSprite;
+	newSprite.init(randomCoordinated(), randomCoordinated(), 0.20, 0.20);
+	sprites.push_back(newSprite);
+	
+}
+
+void MainGame::spritesDraw()
+{
+	for (Sprite sprite: sprites) {
+		sprite.draw();
+	}
+}
+
 
 void MainGame::processInput()
 {
@@ -93,7 +113,7 @@ void MainGame::processInput()
 			break;
 
 		case SDL_MOUSEMOTION:
-			cout << "Posicion en X" << event.motion.x << " Position Y" << event.motion.y << endl;
+			cout << "Posicion en X" << event.motion.x << " Position en Y" << event.motion.y << endl;
 			break;
 	
 		}
