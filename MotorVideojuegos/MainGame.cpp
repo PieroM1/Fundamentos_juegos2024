@@ -24,6 +24,7 @@ void MainGame::initShaders()
 	program.compileShaders("Shaders/colorShaderVert.txt", "Shaders/colorShaderFrag.txt");
 	program.addAtribute("vertexPosition");
 	program.addAtribute("vertexColor");
+	program.addAtribute("vertexUV");
 	program.linkShader();
 }
 
@@ -54,7 +55,7 @@ void MainGame::draw()
 void MainGame::run()
 {
 	init();
-	sprite.init(-1, -1, 1, 1);
+	sprite.init(-1, -1, 1, 1, "Images/Sans.png");
 	update();
 
 }
