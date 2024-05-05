@@ -19,8 +19,12 @@ enum class GameState {
 class MainGame {
 
 private:
-	Sprite sprite;
+	Sprite sprites[20];
+	Uint32 initTime;
+	bool spriteInitialized[20];
 
+
+	Sprite sprite;//
 	int width;
 	int height;
 	Window* window;
@@ -37,4 +41,6 @@ public:
 	void run();
 	void draw();
 	void update();
+
+	float randomCoordinated();
 };

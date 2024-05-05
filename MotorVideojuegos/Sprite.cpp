@@ -12,7 +12,7 @@ Sprite::~Sprite()
 
 }
 
-void Sprite::init(float x, float y, int width, int height, string texturePath)
+void Sprite::init(float x, float y, float width, float height, string texturePath)
 {
 	this->x = x;
 	this->y = y;
