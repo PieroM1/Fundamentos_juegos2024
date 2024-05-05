@@ -5,6 +5,7 @@
 
 
 int main(int argc, char** argv) {
+	srand(time(NULL));
 	MainGame mainGame;
 	mainGame.run();
 	system("pause");

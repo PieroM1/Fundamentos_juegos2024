@@ -6,5 +6,5 @@ struct GLTexture
 {
 	GLuint id;
 	float width;
-	float heigth;
+	float height;
 };

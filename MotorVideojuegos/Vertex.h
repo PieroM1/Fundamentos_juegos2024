@@ -1,19 +1,17 @@
 #pragma once
+#include<GL/glew.h>
 
-#include <GL/glew.h>
-
-struct Position
-{
+struct Position {
 	float x;
 	float y;
 };
 
-struct Color
-{
+struct Color {
 	GLubyte r;
 	GLubyte g;
 	GLubyte b;
 	GLubyte a;
+
 };
 
 struct UV
@@ -22,16 +20,10 @@ struct UV
 	float v;
 };
 
-
-struct Vertex
-{
+struct Vertex {
 	Position position;
 	Color color;
 	UV uv;
-	void setUV(float u, float v) {
-		uv.u = u;
-		uv.v = v;
-	}
 	void setPosition(float x, float y) {
 		position.x = x;
 		position.y = y;
@@ -42,4 +34,10 @@ struct Vertex
 		color.b = b;
 		color.a = a;
 	}
+
+	void setUV(float u, float v) {
+		uv.u = u;
+		uv.v = v;
+	}
+
 };

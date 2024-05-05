@@ -1,9 +1,6 @@
 #pragma once
-
-#include "GLTexture.h"
-#include <string>
-
-
+#include"GLTexture.h"
+#include<string>
 using namespace std;
 class ImageLoader
 {
